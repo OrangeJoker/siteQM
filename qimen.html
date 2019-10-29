@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.js"></script>
+    <script src="js/qm/time2HSEB.js"></script>
+</head>
+
+<body>
+<div style="margin: auto; width: 800px; font-family: Alibaba-PuHuiTi">
+    <h4 class="mt-2">QM Rotary</h4><br>
+    <div class="row">
+        <input id="strDate" type="date" class="btn btn-outline-secondary col-3 ml-3" value="2019-10-16" min="2019-1-12" max="2029-10-26"/>
+        <input id="strTime" type="time" class="btn btn-outline-secondary col-2 ml-2" value="12:00"/>
+        <button class="btn btn-outline-primary col-1 ml-3" type="button" onclick="get_time()">提交</button>
+    </div>
+    <br>
+    <div>
+        <a>输出：</a>
+        <p id="demo">变换文本</p>
+
+        <div class="row">
+            <div class="col-4 mb-3">
+                <div class="card p-2 border-success">
+                    <a>god<br>star<br>door<br>palace 4<br>h_SH<br>h_SH<br>g_SH</a>
+                </div>
+            </div>
+            <div class="col-4 mb-3">
+                <div class="card p-2 border-danger">
+                    <a>god<br>star<br>door<br>palace 9<br>h_SH<br>h_SH<br>g_SH</a>
+                </div>
+            </div>
+            <div class="col-4 mb-3">
+                <div class="card p-2 border-warning">
+                    <a>god<br>star<br>door<br>palace 2<br>h_SH<br>h_SH<br>g_SH</a>
+                </div>
+            </div>
+
+            <div class="col-4 mb-3">
+                <div class="card p-2 border-success">
+                    <a>god<br>star<br>door<br>palace 3<br>h_SH<br>h_SH<br>g_SH</a>
+                </div>
+            </div>
+            <div class="col-4 mb-3">
+                <div class="card p-2 border-warning">
+                    <a>god<br>star<br>door<br>palace 5<br>h_SH<br>h_SH<br>g_SH</a>
+                </div>
+            </div>
+            <div class="col-4 mb-3">
+                <div class="card p-2 border-secondary">
+                    <a>god<br>star<br>door<br>palace 6<br>h_SH<br>h_SH<br>g_SH</a>
+                </div>
+            </div>
+
+            <div class="col-4 mb-3">
+                <div class="card p-2 border-warning">
+                    <a>god<br>star<br>door<br>palace 8<br>h_SH<br>h_SH<br>g_SH</a>
+                </div>
+            </div>
+            <div class="col-4 mb-3">
+                <div class="card p-2 border-primary">
+                    <a>god<br>star<br>door<br>palace 1<br>h_SH<br>h_SH<br>g_SH</a>
+                </div>
+            </div>
+            <div class="col-4 mb-3">
+                <div class="card p-2 border-secondary">
+                    <a>god<br>star<br>door<br>palace 6<br>h_SH<br>h_SH<br>g_SH</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function get_time() {
+        var d = document.getElementById("strDate").value;
+        var t = document.getElementById("strTime").value;
+        if(d == "" || t == "") {
+            alert("输入值不完整 !");
+        } else {
+            var dt = d + " " + t + ":00";
+            var HSEB_dict = time2HSEB(dt);
+            var out = "";
+            for (var i of Object.keys(HSEB_dict)) {
+                out = out + " \n" + HSEB_dict[i].toString();
+            }
+            document.getElementById("demo").innerHTML = out;
+        }
+    }
+</script>
+</body>
+</html>
